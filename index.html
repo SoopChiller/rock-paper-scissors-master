@@ -22,17 +22,27 @@
       </div>
     </header>
     
-    <section>
+    
+    
+    <section class="button-selections">
       <img class="triangle" src="images/triangle.svg" alt="triangle">
-      <img class="rock" src="images/rock.svg" alt="hand-in-rock-formation">
-      <img class="paper" src="images/paper.svg" alt="hand-in-paper-formation">
-      <img class="scissor" src="images/scissor.svg" alt="hand-in-scissor-formation">
+      <button onclick="play(getPlayerSelection('rock'), getComputerSelection());" class="rock-button">
+        <img class="rock-img" src="images/rock.svg" alt="hand-in-rock-formation">
+      </button>
+
+      <button onclick="play(getPlayerSelection('paper'), getComputerSelection())"  class="paper-button">
+        <img class="paper-img" src="images/paper.svg" alt="hand-in-paper-formation">
+      </button>
+      
+      <button onclick="play(getPlayerSelection('scissor'), getComputerSelection())" class="scissor-button">
+        <img class="scissor-img" src="images/scissor.svg" alt="hand-in-scissor-formation">
+      </button>
     </section>
     
     
-    <!-- <footer>
-      Rules
-    </footer> -->
+    <footer>
+      <button onclick="showRules()" class="rules">RULES</button>
+    </footer> 
 
     <!-- You Picked
     The House Picked
@@ -41,6 +51,15 @@
     You Lose
 
     Play Again -->
-  </main> 
+  </main>
+  <div style="display: none;" id="rules-container">
+    <header id="rules-text">RULES</header>
+    <img  id="rules-img" src="images/image-rules.svg" alt="rock-paper-scissors-rules">
+    <button onclick="hideRules()" id="exit-button"><img src="images/icon-close.svg" alt=""></button>
+  </div>
+  
+  <div style="display: none;" id="">
+
+  </div>
 </body>
 </html>
