@@ -22,8 +22,6 @@
       </div>
     </header>
     
-    
-    
     <section class="button-selections">
       <img class="triangle" src="images/triangle.svg" alt="triangle">
       <button onclick="play(getPlayerSelection('rock'), getComputerSelection());" class="rock-button">
@@ -39,7 +37,21 @@
       </button>
     </section>
     
+    <div style="display: none;" id="rock-vs-paper">
+      <div id="player-rock-loser">
+        <img  class="rock-img" src="images/rock.svg" alt="hand-in-rock-formation">
+        <span class="pick" id="you-picked">YOU PICKED</span>
+      </div>
+      <div id="computer-paper-winner">
+        <img class="paper-img" src="images/paper.svg" alt="hand-in-paper-formation">
+        <span style="white-space: nowrap;" class="pick" id="computer-picked">THE HOUSE PICKED</span>
+      </div>
+      <span id="you-lose">YOU LOSE</span>
+      <!-- <button onclick="rockVsPaperHide()">PLAY AGAIN</button> -->
+    </div>
+
     
+
     <footer>
       <button onclick="showRules()" class="rules">RULES</button>
     </footer> 
@@ -51,15 +63,15 @@
     You Lose
 
     Play Again -->
+
+    
   </main>
+
   <div style="display: none;" id="rules-container">
     <header id="rules-text">RULES</header>
     <img  id="rules-img" src="images/image-rules.svg" alt="rock-paper-scissors-rules">
     <button onclick="hideRules()" id="exit-button"><img src="images/icon-close.svg" alt=""></button>
   </div>
-  
-  <div style="display: none;" id="">
 
-  </div>
 </body>
 </html>
