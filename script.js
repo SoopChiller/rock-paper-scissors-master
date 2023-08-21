@@ -1,13 +1,114 @@
+
+
 function hideContent() {
   return document.querySelector('section').style.display = 'none';
 };
 
+function rockVsPaperWin() {
 
-function rockVsPaperHide() {
-  document.getElementById('rock-vs-paper').style.cssText = `
-  display: none;
+};
+
+function increment() {
+  
+  
+let scores = localStorage.setItem('score', 0);
+
+document.getElementById('score').innerHTML = Number(localStorage.getItem('score') + 1);
+
+  
+}
+
+function rockVsPaperLose() {
+  
+  const header = document.querySelector('header');
+
+  header.insertAdjacentHTML('afterend', 
   `
-  play();
+    <div id="rock-vs-paper">
+      <div id="player-rock-loser">
+        <img  class="rock-img" src="images/rock.svg" alt="hand-in-rock-formation">
+        <span class="pick" id="you-picked">YOU PICKED</span>
+      </div>
+      <div id="computer-paper-winner">
+        <img class="paper-img" src="images/paper.svg" alt="hand-in-paper-formation">
+        <span style="white-space: nowrap;" class="pick" id="computer-picked">THE HOUSE PICKED</span>
+      </div>
+      <span id="you-lose">YOU LOSE</span>
+      <button onclick="location.replace(location.href);" id="play-again-button">PLAY AGAIN</button>
+    </div>
+  `);
+
+  const relative = document.getElementById('rock-vs-paper').style.position = 'relative';
+  const gap = document.querySelector('main').style.gap = '215px';
+
+  const lose = document.getElementById("player-rock-loser").style.cssText = 
+  `
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.20);
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.11719rem;
+  position: absolute;
+  color: #FFF;
+  width: 136px;
+  bottom: -3.4rem;
+  right: 1.5rem ;
+  line-height: 4rem;
+  `;
+
+  const win = document.getElementById("computer-paper-winner").style.cssText = 
+  `
+  line-height: 4rem;
+  bottom: -3.4rem;
+  left: 1.5rem ;
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.20);
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.11719rem;
+  color: #FFF;
+  position: absolute;
+  width: 136px;
+  `;
+
+  const button = document.getElementById('play-again-button').style.cssText = 
+  `
+  border-radius: 0.5rem;
+  background: linear-gradient(0deg, #F3F3F3 0%, #FFF 100%);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.20);
+  width: 220px;
+  height: 50px;
+  flex-shrink: 0;
+  position: absolute;
+  color: #3B4262;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.15625rem;
+  border: none;
+  top: 8rem;
+  left: -7rem;
+  `;
+  
+  document.getElementById('you-lose').style.cssText = 
+  `
+  width: 218px;
+  left: -7rem;
+  top: 3rem;
+  position: absolute;
+  color: #FFF;
+  white-space: nowrap;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.20);
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  `;
 };
 
 function showRules() {
@@ -24,16 +125,17 @@ function showRules() {
  gap: 90px;
  `;
 
- const rulesText = document.getElementById('rules-text').style.cssText = `
+ const rulesText = document.getElementById('rules-text').style.cssText = 
+ `
  color: #3B4262;
- font-family: Barlow Semi Condensed;
  font-size: 2rem;
  font-style: normal;
  font-weight: 700;
  line-height: 2rem;
  `;
 
- const exit = document.getElementById('exit-button').style.cssText = `
+ const exit = document.getElementById('exit-button').style.cssText = 
+ `
  background: none;
  border: none;
  fill: #3B4262;
@@ -85,53 +187,7 @@ function getPlayerSelection(choice) {
 };
 
 
-function rockVsPaper() {
-  const gap = document.querySelector('main').style.gap = '215px';
 
-  const rVp = document.getElementById('rock-vs-paper').style.cssText = `
-  color: #FFF;
-  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.20);
-  font-family: Barlow Semi Condensed;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 3rem; 
-  letter-spacing: 0.11719rem;
-  display: flex;
-  text-align: center;
-  position: relative;
-  `;
-
-  const lose = document.getElementById("player-rock-loser").style.cssText = `
-  position: absolute;
-  top: -9.2rem;
-  width: 136px;
-  left: -10rem;
-  `;
-
-  const win = document.getElementById("computer-paper-winner").style.cssText = `
-  position: absolute;
-  top: -9.2rem;
-  width: 136px;
-  right: -10rem;
-  `;
-  
-  document.getElementById('you-lose').style.cssText = `
-  position: absolute;
-  top: 5rem;
-  left: -7.3rem;
-  white-space: nowrap;
-  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.20);
-  font-family: Barlow Semi Condensed;
-  font-size: 3.5rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  `;
-  
-};
-
- 
 
 function play(playerChoice, computerChoice, score) {
   // const outcomes = {
@@ -140,17 +196,20 @@ function play(playerChoice, computerChoice, score) {
   //   'scissor': { 'paper': 'win', 'rock': 'lose', 'scissor': 'tie' }
   // };
   // const outcome = outcomes[playerChoice][computerChoice];
-
+ 
   if(playerChoice === 'rock') {
     if(computerChoice === 'paper') {
       hideContent();
-      rockVsPaper();
+      rockVsPaperLose();
     } else if(computerChoice === 'scissor') {
       hideContent();
+      increment();
     } else if(computerChoice === 'rock') {
       hideContent();
     }
   }
+
+  console.log(localStorage.getItem('score'))
   console.log(playerChoice, computerChoice)
 };
 

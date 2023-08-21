@@ -18,7 +18,7 @@
       <img class="header-logo" src="images/logo.svg" alt="Logo">
       <div class="score-box">
         <span class="score-text">SCORE</span>
-        <span class="score">0</span>
+        <span id="score"></span>
       </div>
     </header>
     
@@ -35,36 +35,11 @@
       <button onclick="play(getPlayerSelection('scissor'), getComputerSelection())" class="scissor-button">
         <img class="scissor-img" src="images/scissor.svg" alt="hand-in-scissor-formation">
       </button>
-    </section>
-    
-    <div style="display: none;" id="rock-vs-paper">
-      <div id="player-rock-loser">
-        <img  class="rock-img" src="images/rock.svg" alt="hand-in-rock-formation">
-        <span class="pick" id="you-picked">YOU PICKED</span>
-      </div>
-      <div id="computer-paper-winner">
-        <img class="paper-img" src="images/paper.svg" alt="hand-in-paper-formation">
-        <span style="white-space: nowrap;" class="pick" id="computer-picked">THE HOUSE PICKED</span>
-      </div>
-      <span id="you-lose">YOU LOSE</span>
-      <!-- <button onclick="rockVsPaperHide()">PLAY AGAIN</button> -->
-    </div>
-
-    
+    </section>    
 
     <footer>
       <button onclick="showRules()" class="rules">RULES</button>
     </footer> 
-
-    <!-- You Picked
-    The House Picked
-
-    You Win
-    You Lose
-
-    Play Again -->
-
-    
   </main>
 
   <div style="display: none;" id="rules-container">
